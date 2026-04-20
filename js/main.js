@@ -75,8 +75,6 @@ const renderHero = (content) => {
         dots.append(dotA, dotB);
         span.appendChild(dots);
       }
-      if (index === 1) span.style.animationDelay = '0.4s';
-      if (index === 2) span.style.animationDelay = '0.8s';
       target.appendChild(span);
     });
   });

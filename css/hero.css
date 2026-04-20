@@ -88,7 +88,33 @@
   align-items: center;
   gap: 0.25rem;
   width: 100%;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.4)) drop-shadow(0 4px 10px rgba(6, 18, 35, 0.5));
+  will-change: transform;
+  animation: drift 8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+#heroTitle span {
+  position: relative;
+  display: inline-flex;
+  padding: 0.08em 0.15em;
+  color: transparent;
+  background-image:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.95) 0%, rgba(212, 244, 238, 0.85) 35%, rgba(132, 188, 221, 0.55) 65%, rgba(24, 60, 94, 0.55) 100%),
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35), transparent 65%),
+    radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.2), transparent 70%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  text-shadow: none;
+}
+
+#heroTitle span:nth-child(2) {
+  transform: translateY(2px);
+}
+
+#heroTitle span:nth-child(3) {
+  transform: translateY(4px);
 }
 
 #heroTitle span {
@@ -148,14 +174,6 @@
   transform: translate(calc(-50% + 14px), calc(-50% - 3px));
   opacity: 0.75;
   animation-delay: 0.35s, 0.55s;
-}
-
-#heroTitle span:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-#heroTitle span:nth-child(3) {
-  animation-delay: 0.8s;
 }
 
 @keyframes drift {

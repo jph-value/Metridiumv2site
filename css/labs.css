@@ -132,7 +132,9 @@ body.labs-view::before {
 .labs-hero__content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1.25rem;
+  text-align: center;
 }
 
 .labs-eyebrow {
@@ -159,6 +161,7 @@ body.labs-view::before {
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   color: rgba(255, 255, 255, 0.75);
   max-width: 520px;
+  text-align: center;
   line-height: 1.7;
   margin: 0;
 }
