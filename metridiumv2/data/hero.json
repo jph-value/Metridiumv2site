@@ -1,0 +1,16 @@
+{
+  "eyebrow": "DEEPTECH / SOCIAL SYSTEM STACKS",
+  "title": ["METRIDIUM"],
+  "lede": "Research-driven development — realigning technological and social systems with the realities of the living world.",
+  "scope": [
+    "Metridium exists to empower individuals through systems and environments designed around the fundamentals of the human condition — enabling richer, more honest relational existence.",
+    "We build to empower individuals — creating systems and environments that improve how people relate to themselves and the world, grounded in human realities and built for good.",
+    "Tools and environments for human flourishing — built around who we really are.",
+    "Redesigning the interface between human systems and living systems — so that what we build actually serves who we are.",
+    "Not a single product or industry — a commitment to building infrastructure that respects the full complexity of human and ecological life."
+  ],
+  "actions": [
+    { "label": "Read our mission", "goto": 1, "style": "primary", "cursor": "ENTER" },
+    { "label": "Enter Labs", "style": "ghost", "cursor": "LABS", "link": "/labs" }
+  ]
+}

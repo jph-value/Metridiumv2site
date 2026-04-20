@@ -1,0 +1,39 @@
+/* ============================================================
+   METRIDIUM v2 — Micro-interactions & Transitions
+   ============================================================ */
+
+.btn {
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo),
+              background var(--duration-normal) ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+}
+
+.btn-ghost:hover {
+  background: rgba(0, 255, 136, 0.05);
+}
+
+.bento-item {
+  transition: transform var(--duration-slow) var(--ease-out-expo),
+              box-shadow var(--duration-slow) var(--ease-out-expo);
+}
+
+.bento-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.scene-pill {
+  transition: all var(--duration-slow) var(--ease-out-expo);
+}
+
+.btn:focus,
+.control-btn:focus,
+.scene-pill:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}

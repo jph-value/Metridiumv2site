@@ -1,0 +1,26 @@
+{
+  "landing": {
+    "eyebrow": "SYSTEMS / IMPACT / EXTRACTION",
+    "title": "METRIDIUM",
+    "lede": "Research-driven development — realigning technological and social systems with the realities of the living world.",
+    "cta": [
+      { "label": "Our Mission", "href": "#mission" },
+      { "label": "Enter Labs", "href": "/mobile-labs", "style": "ghost" }
+    ]
+  },
+  "labs": {
+    "eyebrow": "RESEARCH / APPLIED INFRASTRUCTURE",
+    "title": "Metridium<br>Labs",
+    "lede": "Active research initiatives, technology deployments, and infrastructure experiments. All Metridium initiatives live here.",
+    "cta": [
+      { "label": "View Initiatives", "href": "#initiatives" },
+      { "label": "Specimens", "href": "#specimens", "style": "ghost" }
+    ]
+  },
+  "platform": {
+    "eyebrow": "DePtH OS",
+    "title": "Integrations<br>Manager",
+    "lede": "Hardware-linked access only. Core DePtH OS remains resident on sovereign devices.",
+    "cta": []
+  }
+}
