@@ -1,6 +1,0 @@
-/*
-  METRIDIUM v2 — Netlify redirect rules
-  Clean URLs without .html extensions
-*/
-/labs /labs.html 200
-/platform /platform.html 200
