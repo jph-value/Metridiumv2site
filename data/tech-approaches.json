@@ -3,17 +3,21 @@
     "id": "acrorhagi",
     "tag": "HARDWARE SYSTEMS",
     "title": "ACRORHAGI",
-    "copy": "Hardware systems layer for individual compute security and interaction optimisations — first principles design drawing from biological systems.",
+    "copy": "Hardware systems layer for individual compute security and interaction optimisations \u2014 first principles design drawing from biological systems.",
     "link": null,
     "cursor": "DEPLOY",
     "status": "Prototype",
-    "connections": ["depthose", "acontia", "valuescapital"],
+    "connections": [
+      "depthose",
+      "acontia",
+      "valuescapital"
+    ],
     "detail": {
-      "summary": "ACRORHAGI is the hardware systems layer — bio-inspired compute designed from first principles. The architecture draws from biological systems that have solved distributed processing, fault tolerance, and adaptive IO over evolutionary timescales.",
+      "summary": "ACRORHAGI is the hardware systems layer \u2014 bio-inspired compute designed from first principles. The architecture draws from biological systems that have solved distributed processing, fault tolerance, and adaptive IO over evolutionary timescales.",
       "points": [
         "Custom hardware platforms running DePtH OS natively",
         "Tentacular IO: adaptive multi-channel input/output, much like cnidarian nervous systems",
-        "Topologies with graceful degradation and secure compartmentalisation — resilient against catastrophic failures",
+        "Topologies with graceful degradation and secure compartmentalisation \u2014 resilient against catastrophic failures",
         "Currently in limited but active prototype development"
       ],
       "relations": "Runs DePtH OS as its native operating substrate. Connects through ACONTIA mesh. Platform page serves as the access point for ACRORHAGI systems. Sovereign OS: DePtH OS. Network: ACONTIA."
@@ -23,17 +27,24 @@
     "id": "depthose",
     "tag": "SOVEREIGN OS",
     "title": "DePtH OS",
-    "copy": "Self-sovereign operating substrate — coordinating hardware, software, and social stacks on bonded devices.",
+    "copy": "Self-sovereign operating substrate \u2014 coordinating hardware, software, and social stacks on bonded devices.",
     "link": null,
     "cursor": "DEPLOY",
     "status": "Porting",
-    "connections": ["acrorhagi", "amphiprion", "trust", "acontia", "metridiumphv", "valuescapital"],
+    "connections": [
+      "acrorhagi",
+      "amphiprion",
+      "trust",
+      "acontia",
+      "metridiumphv",
+      "valuescapital"
+    ],
     "detail": {
       "summary": "DePtH OS is a custom operating system distro targeting builds on Rust-native Redox OS, with Linux currently being ported and developed as the native OS MVP for ACRORHAGI hardware. Beyond the safe kernel developments, DePtH OS uses tRust-constrained security processes and includes purpose-built applications to serve as core Metridium ecosystem infrastructure.",
       "points": [
         "Building on Linux for fast and open MVP systems development",
         "Targeting custom Redox OS distro design for high security and micro-kernel level security layers built with tRust verifiable language systems",
-        "Individual self-sovereignty by design — kernel and OS artifacts never leave bonded hardware",
+        "Individual self-sovereignty by design \u2014 kernel and OS artifacts never leave bonded hardware",
         "Purpose-built applications under active development as core ecosystem infrastructure"
       ],
       "relations": "Runs natively on ACRORHAGI hardware. Hosts Amphiprion and tRust as core integrated services. Communicates through ACONTIA mesh and MetridiumPHV. Hardware systems: ACRORHAGI. Trust layer: tRust. Network: ACONTIA."
@@ -41,20 +52,28 @@
   },
   {
     "id": "trust",
-    "tag": "INFRASTRUCTURE TRUST LAYER",
+    "tag": "INFRASTRUCTURE TRUST",
     "title": "tRust",
-    "copy": "Compiler-enforced Rust dialect for deterministic, verifiable state machines — authorization, invariants, and system correctness guaranteed by construction.",
+    "copy": "Compiler-enforced Rust dialect for deterministic, verifiable state machines \u2014 authorization, invariants, and system correctness guaranteed by construction.",
     "link": null,
     "cursor": "DEPLOY",
     "status": "Architecture",
-    "connections": ["depthose", "acontia", "anemoney", "metridiumphv", "mydid", "riscosint", "valuescapital"],
+    "connections": [
+      "depthose",
+      "acontia",
+      "anemoney",
+      "metridiumphv",
+      "mydid",
+      "riscosint",
+      "valuescapital"
+    ],
     "detail": {
       "summary": "tRust is a compiler-enforced Rust dialect for building deterministic, verifiable state machines with explicit state, transitions, and authority. It makes authorization, invariants, and system correctness first-class, enforcing them at compile time and runtime. All execution is bounded, reproducible, and inspectable through a structured intermediate representation (TIR). The result is a language for designing systems where integrity and validity are guaranteed by construction.",
       "points": [
         "Compiler-enforced state machines with explicit transitions and authority",
         "Authorization, invariants, and correctness verified at compile time and runtime",
         "All execution is bounded, reproducible, and inspectable through TIR",
-        "Integrity and validity guaranteed by construction — not by audit"
+        "Integrity and validity guaranteed by construction \u2014 not by audit"
       ],
       "relations": "Serves as the language-level integrity infrastructure intertwined with all service accountability. Sovereign OS: DePtH OS. Network: ACONTIA. Blockchain: MetridiumPHV. Identity: MyDID + PHREE.id."
     }
@@ -63,13 +82,24 @@
     "id": "acontia",
     "tag": "NETWORK",
     "title": "ACONTIA",
-    "copy": "Secure mesh network layer — physical hardware, software infrastructure, and sovereign developments woven into a resilient, adaptive fabric.",
+    "copy": "Secure mesh network layer \u2014 physical hardware, software infrastructure, and sovereign developments woven into a resilient, adaptive fabric.",
     "link": null,
     "cursor": "DEPLOY",
     "status": "Design",
-    "connections": ["acrorhagi", "depthose", "trust", "metridiumphv", "anemoney", "amphiprion", "mydid", "riscosint", "mnemosyne", "valuescapital"],
+    "connections": [
+      "acrorhagi",
+      "depthose",
+      "trust",
+      "metridiumphv",
+      "anemoney",
+      "amphiprion",
+      "mydid",
+      "riscosint",
+      "mnemosyne",
+      "valuescapital"
+    ],
     "detail": {
-      "summary": "ACONTIA is the network mesh that unifies physical hardware, software infrastructure like tRust, and sovereign developments like DePtH OS and Amphiprion into a cohesive, adaptive fabric. Named after the defensive filaments of sea anemones, it provides secure, zero-trust routing between sovereign devices — ensuring every node, every service, and every data flow is verified and encrypted by default.",
+      "summary": "ACONTIA is the network mesh that unifies physical hardware, software infrastructure like tRust, and sovereign developments like DePtH OS and Amphiprion into a cohesive, adaptive fabric. Named after the defensive filaments of sea anemones, it provides secure, zero-trust routing between sovereign devices \u2014 ensuring every node, every service, and every data flow is verified and encrypted by default.",
       "points": [
         "Zero-trust architecture: every connection verified, nothing assumed safe",
         "Adaptive routing that responds to network conditions and threat landscapes",
@@ -83,12 +113,22 @@
     "id": "metridiumphv",
     "tag": "BLOCKCHAIN",
     "title": "MetridiumPHV",
-    "aliases": ["MetridiumPHV", "Omnichain"],
-    "copy": "Independent network blockchain empowering the ACONTIA compute mesh — participation-verified hybrid consensus for coordinated value, governance, and verifiable proofs.",
+    "aliases": [
+      "MetridiumPHV",
+      "Omnichain"
+    ],
+    "copy": "Independent network blockchain empowering the ACONTIA compute mesh \u2014 participation-verified hybrid consensus for coordinated value, governance, and verifiable proofs.",
     "link": null,
     "cursor": "DEPLOY",
     "status": "Research",
-    "connections": ["acontia", "trust", "anemoney", "mydid", "depthose", "valuescapital"],
+    "connections": [
+      "acontia",
+      "trust",
+      "anemoney",
+      "mydid",
+      "depthose",
+      "valuescapital"
+    ],
     "detail": {
       "summary": "MetridiumPHV is an independent network blockchain empowering the ACONTIA compute mesh. As the blockchain substrate it performs critical verification roles as a hybrid chain for participation-verified consensus rather than extractive mining. It provides the immutable ledger layer for value coordination, compute resource networking, and verifiable proofs that the broader ecosystem depends on. PHREE.id identity is enforced natively on-chain.",
       "points": [
@@ -104,14 +144,23 @@
     "id": "anemoney",
     "tag": "ECONOMIC INFRA",
     "title": "Ane.moneY",
-    "copy": "ANE ecosystem: participation-based distributed value coordination system — economic infrastructure for genuine utility, not speculation.",
+    "copy": "ANE ecosystem: participation-based distributed value coordination system \u2014 economic infrastructure for genuine utility, not speculation.",
     "link": "https://ane.money",
     "cursor": "DEPLOY",
-    "aliases": ["Ane.moneY", "Anemone Yield"],
+    "aliases": [
+      "Ane.moneY",
+      "Anemone Yield"
+    ],
     "status": "In Development",
-    "connections": ["acontia", "metridiumphv", "trust", "valuescapital", "riscosint"],
+    "connections": [
+      "acontia",
+      "metridiumphv",
+      "trust",
+      "valuescapital",
+      "riscosint"
+    ],
     "detail": {
-      "summary": "ANE is the economic coordination layer — a participation-based value system designed to sustain Metridium initiatives without relying on extractive financial models, while growing into a broader value ecosystem. Anemone yield represents the return generated through genuine utility and participation rather than speculation, while Ane.moneY is the infrastructure platform for interactions.",
+      "summary": "ANE is the economic coordination layer \u2014 a participation-based value system designed to sustain Metridium initiatives without relying on extractive financial models, while growing into a broader value ecosystem. Anemone yield represents the return generated through genuine utility and participation rather than speculation, while Ane.moneY is the infrastructure platform for interactions.",
       "points": [
         "Distributed value coordination: participants contribute and benefit proportionally",
         "Designed for self-sustaining economic infrastructure",
@@ -125,15 +174,20 @@
     "id": "amphiprion",
     "tag": "USER UTILITY",
     "title": "AMPHIPRION",
-    "copy": "Privacy-first, multi-agent AI database platform — orchestrating LLMs, encrypted vaults, and autonomous agents with monetizable data ownership and powerful automation.",
+    "copy": "Privacy-first, multi-agent AI database platform \u2014 orchestrating LLMs, encrypted vaults, and autonomous agents with monetizable data ownership and powerful automation.",
     "link": null,
     "cursor": "DEPLOY",
     "status": "Architecture",
-    "connections": ["depthose", "acontia", "mnemosyne", "valuescapital"],
+    "connections": [
+      "depthose",
+      "acontia",
+      "mnemosyne",
+      "valuescapital"
+    ],
     "detail": {
-      "summary": "Amphiprion — named after the genus of anemone fish — is a privacy-first, multi-agent AI supported database platform that runs on your own hardware and through secure network resources, enforcing user self-sovereignty through monetizable data ownership and powerful automation capabilities. It orchestrates local LLMs, encrypted vaults, and autonomous agents across an ACRORHAGI–ACONTIA device mesh. Built as a core DePtH OS integrated application environment.",
+      "summary": "Amphiprion \u2014 named after the genus of anemone fish \u2014 is a privacy-first, multi-agent AI supported database platform that runs on your own hardware and through secure network resources, enforcing user self-sovereignty through monetizable data ownership and powerful automation capabilities. It orchestrates local LLMs, encrypted vaults, and autonomous agents across an ACRORHAGI\u2013ACONTIA device mesh. Built as a core DePtH OS integrated application environment.",
       "points": [
-        "Can run entirely on your own hardware — no cloud dependency required",
+        "Can run entirely on your own hardware \u2014 no cloud dependency required",
         "Orchestrates local LLMs, cloud LLM resources, local network encrypted vaults, and autonomous agents",
         "Advanced security protocols, layered encryption, and isolated processes",
         "Full self-sovereign control over your data and AI infrastructure in a securely unified environment"
@@ -145,14 +199,23 @@
     "id": "riscosint",
     "tag": "INTELLIGENCE",
     "title": "Risc OSINT",
-    "aliases": ["Risc OSINT", "Risc.it.com"],
-    "copy": "Intelligence analysis platform and framework for semi-public community intelligence — systematic observation, correlation, and pattern recognition across open-source information.",
-    "link": null,
+    "aliases": [
+      "Risc OSINT",
+      "Risc.it.com"
+    ],
+    "copy": "Intelligence analysis platform and framework for semi-public community intelligence \u2014 systematic observation, correlation, and pattern recognition across open-source information.",
+    "link": "https://risc.it.com/",
     "cursor": "DEPLOY",
     "status": "Research/OSINT",
-    "connections": ["trust", "mydid", "acontia", "anemoney", "valuescapital"],
+    "connections": [
+      "trust",
+      "mydid",
+      "acontia",
+      "anemoney",
+      "valuescapital"
+    ],
     "detail": {
-      "summary": "Risc OSINT is the intelligence analysis layer — a platform and framework for semi-public community intelligence, systematically gathering, correlating, and deriving actionable patterns from open-source information. Designed to serve Metridium's research and infrastructure decisions with verified, attributable intelligence, while providing publicly available, clean and verified information streams. Utilising and in awe of projects like GDELT.",
+      "summary": "Risc OSINT is the intelligence analysis layer \u2014 a platform and framework for semi-public community intelligence, systematically gathering, correlating, and deriving actionable patterns from open-source information. Designed to serve Metridium's research and infrastructure decisions with verified, attributable intelligence, while providing publicly available, clean and verified information streams. Utilising and in awe of projects like GDELT.",
       "points": [
         "Systematic collection and correlation of open-source intelligence",
         "Pattern recognition across diverse information landscapes",
@@ -166,18 +229,23 @@
     "id": "mnemosyne",
     "tag": "MEMORY SYSTEMS",
     "title": "RemeMnemosyne",
-    "copy": "High-performance agentic memory engine — unified memory coordination at scale, semantic search across millions of records, and turbo-compressed vector retrieval.",
-    "link": null,
+    "copy": "High-performance agentic memory engine \u2014 unified memory coordination at scale, semantic search across millions of records, and turbo-compressed vector retrieval.",
+    "link": "https://github.com/jph-value/RemeMnemosyne",
     "cursor": "DEPLOY",
     "status": "Concept",
-    "connections": ["amphiprion", "mydid", "acontia", "valuescapital"],
+    "connections": [
+      "amphiprion",
+      "mydid",
+      "acontia",
+      "valuescapital"
+    ],
     "detail": {
-      "summary": "RemeMnemosyne — named after the Greek goddess of memory — is being developed as a high-performance agentic memory engine built for better overviews of personalised data ownership, and provides LLM agents unified memory coordination at scale. It was engineered to remove hard limitations on event storage and deliver semantic search across millions of records. Memory is not a feature; it is critical core architecture.",
+      "summary": "RemeMnemosyne \u2014 named after the Greek goddess of memory \u2014 is being developed as a high-performance agentic memory engine built for better overviews of personalised data ownership, and provides LLM agents unified memory coordination at scale. It was engineered to remove hard limitations on event storage and deliver semantic search across millions of records. Memory is not a feature; it is critical core architecture.",
       "points": [
         "Multi-modal memory system spanning semantic, episodic, graph, and temporal memory types",
         "TurboQuant compression engine delivering 8x vector compression via Product Quantization and Polar Quantization",
         "Sub-millisecond micro-embeddings with HNSW approximate nearest-neighbour search for rapid context retrieval",
-        "Pure Rust core by default — scales from embedded single-agent use to large-scale multi-system permissioned intelligence pipelines"
+        "Pure Rust core by default \u2014 scales from embedded single-agent use to large-scale multi-system permissioned intelligence pipelines"
       ],
       "relations": "Feeds Amphiprion's AI agents with cumulative knowledge. Preserves identity context from PHREE.id. Persists across ACONTIA mesh."
     }
@@ -186,17 +254,24 @@
     "id": "mydid",
     "tag": "IDENTITY",
     "title": "MyDID.ORG + PHREE.id",
-    "copy": "Self-sovereign identity enforced natively by MetridiumPHV blockchain — credentials for ecosystem interactions, data vaults, and compute/storage mesh access.",
+    "copy": "Self-sovereign identity enforced natively by MetridiumPHV blockchain \u2014 credentials for ecosystem interactions, data vaults, and compute/storage mesh access.",
     "link": null,
     "cursor": "DEPLOY",
     "status": "Research",
-    "connections": ["metridiumphv", "trust", "acontia", "riscosint", "mnemosyne", "valuescapital"],
+    "connections": [
+      "metridiumphv",
+      "trust",
+      "acontia",
+      "riscosint",
+      "mnemosyne",
+      "valuescapital"
+    ],
     "detail": {
       "summary": "PHREE.id is the verified identity system enforced natively by MetridiumPHV blockchain. It allows interfacing with network compute and storage for self-sovereign data, serves as a credential for any full ecosystem interaction, and provides outside utility such as data vaults. PHREE.id also validates and enables the compute and storage mesh system as part of ACONTIA.",
       "points": [
         "PHREE.id: verified identity enforced natively on MetridiumPHV blockchain",
         "Self-sovereign data vaults accessible through identity credentials",
-        "Credential for full ecosystem interactions — compute, storage, mesh access",
+        "Credential for full ecosystem interactions \u2014 compute, storage, mesh access",
         "MyDID.ORG stewards the broader mission: identity as a fundamental human right",
         "Validating and enabling ACONTIA's compute and storage mesh"
       ],
@@ -207,19 +282,33 @@
     "id": "valuescapital",
     "tag": "CAPITAL FORMATION",
     "title": "values.capital",
-    "aliases": ["values.capital", "RIS.capital"],
-    "copy": "Institutional capital formation vehicles — raising and deploying resources without extractive expectations, structured for specific directions of social innovation and infrastructure building.",
+    "aliases": [
+      "values.capital",
+      "RIS.capital"
+    ],
+    "copy": "Institutional capital formation vehicles \u2014 raising and deploying resources without extractive expectations, structured for specific directions of social innovation and infrastructure building.",
     "link": null,
     "cursor": "DEPLOY",
     "status": "Financial Vehicles",
-    "connections": ["acrorhagi", "depthose", "trust", "acontia", "metridiumphv", "anemoney", "amphiprion", "riscosint", "mnemosyne", "mydid"],
+    "connections": [
+      "acrorhagi",
+      "depthose",
+      "trust",
+      "acontia",
+      "metridiumphv",
+      "anemoney",
+      "amphiprion",
+      "riscosint",
+      "mnemosyne",
+      "mydid"
+    ],
     "detail": {
       "summary": "values.capital and RIS.capital are two arms making up the institutional capital formation vehicles adjacent to, and integrating with, the Metridium ecosystem. Capital is treated as a tool for building sustainable infrastructure for specific directions of social innovation, not as an instrument of control.",
       "points": [
         "Capital raised without equity dilution or extractive monetary expectations",
         "Commitment aligned with milestone delivery and demonstrated progress",
         "Feeds directly into ANE.moneY economic coordination and ACRORHAGI hardware development",
-        "Structured to preserve sovereignty — investors are mission participants, not rent-seekers"
+        "Structured to preserve sovereignty \u2014 investors are mission participants, not rent-seekers"
       ],
       "relations": "Provides the capital formation layer that funds ACRORHAGI hardware R&D and DePtH OS development. Settlement inside and outside of MetridiumPHV for transparent ledger operations. Flows into ANE.moneY as the economic coordination engine. Operates across ACONTIA mesh."
     }

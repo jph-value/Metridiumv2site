@@ -33,7 +33,7 @@ const renderHero = (content) => {
       prevBtn.type = 'button';
       prevBtn.className = 'scope-arrow scope-arrow--prev';
       prevBtn.setAttribute('aria-label', 'Previous scope');
-      prevBtn.innerHTML = '<img src="/assets/metridium-logo-64.png" alt="" class="scope-arrow-img">';
+      prevBtn.innerHTML = '<img src="/assets/crispclearMetridiumlogo-256.png" alt="" class="scope-arrow-img">';
 
       const textEl = document.createElement('p');
       textEl.className = 'scope-line';
@@ -43,10 +43,15 @@ const renderHero = (content) => {
       nextBtn.type = 'button';
       nextBtn.className = 'scope-arrow scope-arrow--next';
       nextBtn.setAttribute('aria-label', 'Next scope');
-      nextBtn.innerHTML = '<img src="/assets/metridium-logo-64.png" alt="" class="scope-arrow-img">';
+      nextBtn.innerHTML = '<img src="/assets/crispclearMetridiumlogo-256.png" alt="" class="scope-arrow-img">';
 
       wrapper.append(prevBtn, textEl, nextBtn);
       ledeEl.parentNode.insertBefore(wrapper, ledeEl);
+
+      const finePrint = document.createElement('p');
+      finePrint.className = 'scope-fineprint';
+      finePrint.textContent = 'Same statement, five entry points \u2014 because alignment matters more than phrasing.';
+      wrapper.parentNode.insertBefore(finePrint, wrapper.nextSibling);
     }
   }
 

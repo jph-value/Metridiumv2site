@@ -135,7 +135,7 @@ export function initCursor() {
 
     if (!mouseMoved && particles.length === 0) {
       idleFrames++;
-      if (idleFrames > 3) {
+      if (idleFrames > 6) {
         animId = requestAnimationFrame(animate);
         return;
       }
@@ -148,10 +148,37 @@ export function initCursor() {
     mouseY = targetY;
 
     trail.unshift({ x: mouseX + Math.sin(time * 3) * 2, y: mouseY + Math.cos(time * 2.5) * 2 });
-    if (trail.length > 14) trail.length = 14;
+    if (trail.length > 12) trail.length = 12;
 
-    if (mouseMoved && Math.random() < 0.06 && targetX > 0) {
+    if (mouseMoved && Math.random() < 0.04 && targetX > 0) {
       spawnParticle(mouseX + (Math.random() - 0.5) * 8, mouseY + (Math.random() - 0.5) * 8, { directional: true });
+    }
+
+    if (!mouseMoved && particles.length === 0 && idleFrames > 4) {
+      glowCtx.clearRect(0, 0, width, height);
+      cursorCtx.clearRect(0, 0, width, height);
+      ambientBlobs.forEach((blob, i) => {
+        blob.phase += blob.speed;
+        blob.x = blob.baseX + Math.sin(blob.phase) * 80 + Math.cos(blob.phase * 0.7) * 40;
+        blob.y = blob.baseY + Math.cos(blob.phase * 0.8) * 60 + Math.sin(blob.phase * 0.5) * 30;
+        blob.baseX += (mouseX - blob.x) * 0.0002;
+        blob.baseY += (mouseY - blob.y) * 0.0002;
+      });
+      if (trail.length > 2 && targetX > 0) {
+        cursorCtx.save();
+        cursorCtx.globalCompositeOperation = 'source-over';
+        const coreSize = isHovering ? 12 : 8;
+        const coreGlow = cursorCtx.createRadialGradient(mouseX - 2, mouseY - 2, 0, mouseX + 3, mouseY + 3, coreSize);
+        coreGlow.addColorStop(0, 'rgba(200, 255, 240, 0.7)');
+        coreGlow.addColorStop(1, 'transparent');
+        cursorCtx.fillStyle = coreGlow;
+        cursorCtx.beginPath();
+        cursorCtx.arc(mouseX, mouseY, coreSize, 0, Math.PI * 2);
+        cursorCtx.fill();
+        cursorCtx.restore();
+      }
+      animId = requestAnimationFrame(animate);
+      return;
     }
 
     glowCtx.clearRect(0, 0, width, height);

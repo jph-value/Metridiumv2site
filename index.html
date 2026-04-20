@@ -12,9 +12,9 @@
     <meta property="og:title" content="METRIDIUM">
     <meta property="og:description" content="Research-driven development realigning technological and social systems with the realities of the living world.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="/assets/metridium_logo_mark_tight.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/metridium_logo_mark_tight.png">
-    <link rel="apple-touch-icon" href="assets/metridium_logo_mark_tight.png">
+    <meta property="og:image" content="/assets/crispclearMetridiumlogo-256.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/crispclearMetridiumlogo.png">
+    <link rel="apple-touch-icon" href="assets/crispclearMetridiumlogo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -348,7 +348,7 @@
             </button>
         </div>
         <a class="logo" href="#">
-            <img src="/assets/metridium_logo_mark_tight.png" alt="Metridium crest" class="logo-emblem" width="78" height="86" loading="eager" decoding="async">
+            <img src="/assets/crispclearMetridiumlogo-256.png" alt="Metridium crest" class="logo-emblem" width="78" height="86" loading="eager" decoding="async">
             <div class="logo-type">
                 <span class="logo-mark">METRIDIUM</span>
                 <span class="logo-subtitle">phase: origin</span>
@@ -512,5 +512,14 @@
     </main>
 
     <script type="module" src="/js/main.js"></script>
+
+    <!-- Netlify form detection (hidden, JS-injected form handles UX) -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
+        <input type="hidden" name="form-name" value="contact">
+        <input type="text" name="name">
+        <input type="email" name="email">
+        <textarea name="message"></textarea>
+        <input type="checkbox" name="mailing_list" value="yes">
+    </form>
 </body>
 </html>

@@ -178,9 +178,14 @@
   }
 
   .scope-arrow {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  .scope-arrow-img {
+    width: 20px;
+    height: 20px;
   }
 
   .hero-actions {
