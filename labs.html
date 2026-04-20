@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; object-src 'self'; frame-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+    <title>METRIDIUM-Labs</title>
+    <meta name="description" content="Metridium Labs — deep-tech research and applied systems development at the intersection of ecology, sovereignty, and resilient infrastructure.">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/metridium_logo_mark_tight.png">
+    <link rel="apple-touch-icon" href="/assets/metridium_logo_mark_tight.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/marine-snow.css">
+    <link rel="stylesheet" href="/css/loader.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/hud.css">
+    <link rel="stylesheet" href="/css/labs.css">
+    <link rel="stylesheet" href="/css/cards.css">
+    <link rel="stylesheet" href="/css/cursor.css">
+    <link rel="stylesheet" href="/css/interactions.css">
+    <link rel="stylesheet" href="/css/contact-hud.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <script>
+        try {
+            if (window.top !== window.self) {
+                window.top.location = window.self.location;
+            }
+        } catch (e) {
+            window.self.location = window.self.location;
+        }
+    </script>
+</head>
+<body class="labs-view" data-default-view="labs">
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;" aria-hidden="true">
+  <defs>
+    <filter id="volumetricGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.5" result="blur1"/>
+      <feGaussianBlur stdDeviation="5" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="subsurface" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feColorMatrix type="matrix" values="1 0 0 0 0.03
+                                        0 1 0 0 0.06
+                                        0 0 1 0 0.08
+                                        0 0 0 0.85 0" result="tinted"/>
+      <feComposite in="SourceGraphic" in2="tinted" operator="over"/>
+    </filter>
+
+    <linearGradient id="columnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4a5a68" stop-opacity="0.45"/>
+      <stop offset="12%" stop-color="#98a8b8"/>
+      <stop offset="30%" stop-color="#c8d5e0"/>
+      <stop offset="50%" stop-color="#f0f5f8"/>
+      <stop offset="70%" stop-color="#d0dce5"/>
+      <stop offset="88%" stop-color="#a0b0c0"/>
+      <stop offset="100%" stop-color="#556570" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <linearGradient id="columnHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.32"/>
+      <stop offset="75%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="columnShadow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a2530" stop-opacity="0.5"/>
+      <stop offset="18%" stop-color="#1a2530" stop-opacity="0"/>
+      <stop offset="82%" stop-color="#1a2530" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#1a2530" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <radialGradient id="pedalDisc" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#d0dce5" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#a0b0c0" stop-opacity="0.7"/>
+      <stop offset="70%" stop-color="#606a72" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#303538" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="capGrad" cx="50%" cy="75%" r="65%" fx="58%" fy="38%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="22%" stop-color="#f5f8fa"/>
+      <stop offset="48%" stop-color="#dae5ed"/>
+      <stop offset="72%" stop-color="#b5c8d8"/>
+      <stop offset="100%" stop-color="#8aa0b5" stop-opacity="0.55"/>
+    </radialGradient>
+
+    <radialGradient id="capRim" cx="50%" cy="100%" r="80%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="82%" stop-color="#c0d8e8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#a0c0d8" stop-opacity="0.12"/>
+    </radialGradient>
+
+    <radialGradient id="tentacleGrad" cx="50%" cy="100%" r="85%">
+      <stop offset="0%" stop-color="#f8fafc" stop-opacity="0.97"/>
+      <stop offset="22%" stop-color="#f0f5f8" stop-opacity="0.78"/>
+      <stop offset="48%" stop-color="#dce8f0" stop-opacity="0.48"/>
+      <stop offset="72%" stop-color="#c0d4e2" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#a0c0d5" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="tentacleInner" cx="50%" cy="100%" r="58%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#f5f8fa" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#e8f0f5" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="filamentGrad" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#f8fafc" stop-opacity="0.94"/>
+      <stop offset="35%" stop-color="#e8f2f8" stop-opacity="0.55"/>
+      <stop offset="68%" stop-color="#d0e0eb" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#b8d0e0" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="akrorhagiHalo" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#f0fbff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#9edbfd" stop-opacity="0.45"/>
+      <stop offset="70%" stop-color="#4ac2ff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#1a3a56" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="akrorhagiFilament" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e8ffff" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#aee8ff" stop-opacity="0.7"/>
+      <stop offset="55%" stop-color="#76fdd9" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <radialGradient id="ambientGlow" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#6090b8" stop-opacity="0.1"/>
+      <stop offset="45%" stop-color="#4878a0" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#306080" stop-opacity="0"/>
+    </radialGradient>
+
+    <g id="anemoneSimple">
+      <ellipse cx="50" cy="35" rx="35" ry="25" fill="url(#tentacleGrad)" opacity="0.7"/>
+      <ellipse cx="50" cy="55" rx="20" ry="12" fill="url(#capGrad)"/>
+      <path d="M42,63 Q40,110 43,175 L57,175 Q60,110 58,63 Z" fill="url(#columnGrad)"/>
+      <ellipse cx="50" cy="176" rx="12" ry="4" fill="url(#pedalDisc)"/>
+    </g>
+
+    <g id="anemoneMedium">
+      <g class="tentacles">
+        <ellipse cx="50" cy="32" rx="40" ry="28" fill="url(#tentacleGrad)" opacity="0.85"/>
+        <ellipse cx="50" cy="36" rx="30" ry="20" fill="url(#tentacleInner)" opacity="0.4"/>
+        <g stroke="url(#filamentGrad)" stroke-width="0.6" fill="none" opacity="0.65" stroke-linecap="round">
+          <path d="M50,58 Q22,30 12,5"/>
+          <path d="M50,58 Q38,22 32,-2"/>
+          <path d="M50,58 Q50,18 50,-8"/>
+          <path d="M50,58 Q62,22 68,-2"/>
+          <path d="M50,58 Q78,30 88,5"/>
+        </g>
+      </g>
+      <ellipse cx="50" cy="55" rx="26" ry="16" fill="url(#capGrad)"/>
+      <ellipse cx="50" cy="55" rx="26" ry="16" fill="url(#capRim)"/>
+      <path d="M39,67 Q35,112 39,172 L61,172 Q65,112 61,67 Z" fill="url(#columnGrad)"/>
+      <path d="M39,67 Q35,112 39,172 L61,172 Q65,112 61,67 Z" fill="url(#columnHighlight)" opacity="0.4"/>
+      <ellipse cx="50" cy="174" rx="15" ry="5" fill="url(#pedalDisc)"/>
+    </g>
+
+    <g id="anemoneHero">
+      <g class="tentacles">
+        <ellipse cx="60" cy="26" rx="50" ry="34" fill="url(#tentacleGrad)" opacity="0.9" filter="url(#volumetricGlow)"/>
+        <ellipse cx="60" cy="30" rx="38" ry="26" fill="url(#tentacleInner)" opacity="0.52"/>
+        <g stroke="url(#filamentGrad)" stroke-width="0.72" fill="none" opacity="0.78" stroke-linecap="round">
+          <path d="M60,58 Q12,26 -4,-6"/>
+          <path d="M60,58 Q30,15 18,-18"/>
+          <path d="M60,58 Q60,10 60,-20"/>
+          <path d="M60,58 Q90,15 102,-18"/>
+          <path d="M60,58 Q108,26 124,-6"/>
+        </g>
+        <g class="akrorhagi">
+          <ellipse cx="60" cy="34" rx="46" ry="20" fill="url(#akrorhagiHalo)" opacity="0.55"/>
+          <g class="akrorhagi-filaments" stroke="url(#akrorhagiFilament)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.8">
+            <path d="M10,30 Q-2,14 -6,-4"/>
+            <path d="M30,30 Q24,10 20,-12"/>
+            <path d="M60,30 Q60,6 60,-16"/>
+            <path d="M90,30 Q96,10 100,-12"/>
+            <path d="M110,30 Q122,14 126,-4"/>
+          </g>
+        </g>
+      </g>
+      <ellipse cx="60" cy="54" rx="34" ry="20" fill="url(#capGrad)" filter="url(#subsurface)"/>
+      <ellipse cx="60" cy="54" rx="34" ry="20" fill="url(#capRim)"/>
+      <path d="M42,68 Q34,106 32,142 Q30,178 36,194 Q40,202 54,204 L72,204 Q86,202 90,194 Q96,178 94,142 Q92,106 84,68 Z" fill="url(#columnGrad)"/>
+      <path d="M42,68 Q34,106 32,142 Q30,178 36,194 Q40,202 54,204 L72,204 Q86,202 90,194 Q96,178 94,142 Q92,106 84,68 Z" fill="url(#columnHighlight)" opacity="0.52"/>
+      <path d="M42,68 Q34,106 32,142 Q30,178 36,194 Q40,202 54,204 L72,204 Q86,202 90,194 Q96,178 94,142 Q92,106 84,68 Z" fill="url(#columnShadow)" opacity="0.34"/>
+      <ellipse cx="62" cy="206" rx="22" ry="7" fill="url(#pedalDisc)"/>
+    </g>
+  </defs>
+</svg>
+
+    <div class="marine-snow" aria-hidden="true"></div>
+    <div class="marine-snow-deep" aria-hidden="true"></div>
+    <div class="marine-caustics" aria-hidden="true"></div>
+    <div class="marine-depth-gradient" aria-hidden="true"></div>
+    <div class="marine-organic-drift" aria-hidden="true"></div>
+    <canvas class="glow-canvas" id="glowCanvas" aria-hidden="true"></canvas>
+    <canvas class="cursor-canvas" id="cursorCanvas" aria-hidden="true"></canvas>
+
+    <div class="loader" id="loader" role="status" aria-live="polite">
+        <div class="loader-glyph">
+            <span class="loader-ring"></span>
+            <span class="loader-dot labs-dot"></span>
+        </div>
+        <p class="loader-text">Loading Labs</p>
+    </div>
+
+    <div class="hud-overlay" id="cmdPalette" aria-hidden="true">
+        <div class="hud-panel">
+            <header class="hud-header">
+                <div class="hud-brand">
+                    <span class="hud-title">METRIDIUM</span>
+                    <span class="hud-subtitle">Navigation &middot; Systems</span>
+                </div>
+                <div class="hud-header-controls">
+                    <span class="hud-shortcut"><kbd>Esc</kbd></span>
+                    <button class="hud-close" aria-label="Close">&times;</button>
+                </div>
+            </header>
+            <div class="hud-body">
+                <div class="hud-search">
+                    <svg viewBox="0 0 24 24" class="hud-search-icon" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    <input id="cmdInput" class="hud-search-input" type="text" placeholder="Search or jump…" aria-label="Search">
+                </div>
+                <section class="hud-section">
+                    <h4 class="hud-section-label">Site Map</h4>
+                    <div class="hud-nav-grid">
+                        <a class="hud-nav-card" href="/"><span class="hud-nav-marker">01</span><span class="hud-nav-title">Landing</span><span class="hud-nav-desc">Mission &amp; orientation</span></a>
+                        <a class="hud-nav-card hud-nav-card--current" href="/labs"><span class="hud-nav-marker">02</span><span class="hud-nav-title">Labs</span><span class="hud-nav-desc">Research &amp; initiatives</span></a>
+                        <a class="hud-nav-card" href="/platform"><span class="hud-nav-marker">03</span><span class="hud-nav-title">Platform</span><span class="hud-nav-desc">Infrastructure access</span></a>
+                        <button class="hud-nav-card hud-nav-card--action" id="hudContactBtn" type="button"><span class="hud-nav-marker">&bull;</span><span class="hud-nav-title">Contact</span><span class="hud-nav-desc">Send a message</span></button>
+                    </div>
+                </section>
+            </div>
+            <footer class="hud-footer">
+                <span class="hud-footer-status"><span class="hud-status-dot"></span> Systems nominal</span>
+                <span class="hud-footer-keys"><kbd>Esc</kbd> Close</span>
+            </footer>
+        </div>
+    </div>
+
+    <header class="top-bar">
+        <div class="view-toggle" role="group" aria-label="Experience toggle" data-default-view="labs">
+            <button type="button" class="view-toggle__btn" data-view="landing" data-link="/">
+                Landing
+            </button>
+            <span class="view-toggle__divider" aria-hidden="true"></span>
+            <button type="button" class="view-toggle__btn" data-view="platform" data-link="/platform">
+                Platform
+            </button>
+            <span class="view-toggle__divider" aria-hidden="true"></span>
+            <button type="button" class="view-toggle__btn view-toggle__btn--labs is-active" data-view="labs">
+                Labs
+            </button>
+        </div>
+        <a class="logo" href="/">
+            <img src="/assets/metridium_logo_mark_tight.png" alt="Metridium crest" class="logo-emblem" width="78" height="86" loading="eager" decoding="async">
+            <div class="logo-type">
+                <span class="logo-mark">METRIDIUM</span>
+                <span class="logo-subtitle">labs</span>
+            </div>
+        </a>
+
+        <nav class="scene-nav scene-nav--labs" aria-label="Labs navigation">
+            <span class="labs-pill">
+                <strong>Metridium Labs</strong>
+                <span>Research</span>
+            </span>
+        </nav>
+
+        <div class="controls">
+            <button class="control-btn mobile-contact-btn" id="mobileContactBtn" aria-label="Contact">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </button>
+            <button class="control-btn" id="contactToggle" data-cursor="SEND" aria-label="Contact">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </button>
+            <button class="control-btn" id="cmdToggle" data-cursor="COMMAND" aria-label="Navigation HUD">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </button>
+            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Menu">
+                <svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="2.5" rx="1"/><rect x="3" y="10.5" width="18" height="2.5" rx="1"/><rect x="3" y="18" width="18" height="2.5" rx="1"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <nav class="mobile-page-nav" aria-label="Page navigation">
+        <a class="mobile-page-nav__link" href="/">Landing</a>
+        <a class="mobile-page-nav__link is-active" href="/labs">Labs</a>
+        <a class="mobile-page-nav__link" href="/platform">Platform</a>
+    </nav>
+
+    <main class="labs-main">
+        <div class="labs-grid-bg" aria-hidden="true"></div>
+        <div class="labs-glow" aria-hidden="true"></div>
+        <div class="labs-pressure-gradient" aria-hidden="true"></div>
+
+        <section class="labs-hero">
+            <div class="labs-hero__content">
+                <p class="labs-eyebrow">Research / Applied Infrastructure</p>
+                <h1 class="labs-title">Metridium<br>Labs</h1>
+                <p class="labs-lede">Research initiatives, technology deployments, and infrastructure experiments.</p>
+                <div class="labs-hero__actions">
+                    <a href="#labs-tech" class="btn btn-labs-primary" data-cursor="DESCEND">View Initiatives</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="labs-tech-section" id="labs-tech">
+            <header class="labs-section-header">
+                <span class="labs-depth-marker">01</span>
+                <h2>Initiatives & Technology</h2>
+                <p>Select a node to explore connections.</p>
+            </header>
+
+            <div class="topo-approaches" id="techApproaches">
+                <svg class="topo-svg" aria-hidden="true"><g class="topo-lines"></g></svg>
+            </div>
+            <div class="topo-detail" id="topoDetail"></div>
+        </section>
+
+        <section class="labs-initiatives" id="labs-initiatives">
+            <header class="labs-section-header">
+                <span class="labs-depth-marker">02</span>
+                <h2>Research Initiatives</h2>
+                <p>Experiments and infrastructure projects.</p>
+            </header>
+
+            <div class="labs-specimen-grid" id="labsResearch"></div>
+        </section>
+
+        <section class="labs-garden" aria-hidden="true">
+            <div class="labs-garden__ocean">
+                <div class="labs-garden__haze"></div>
+
+                <div class="labs-garden__field">
+                    <div class="labs-anemone-belt labs-belt--rear">
+                        <div class="labs-anemone" style="--x: 12%; --w: 28px; --h: 52px; --delay: 1.8s; --sway-dur: 15s; --depth-blur: blur(3.2px); --op: 0.12;"><svg viewBox="0 0 100 180"><use href="#anemoneSimple"/></svg></div>
+                        <div class="labs-anemone" style="--x: 38%; --w: 26px; --h: 48px; --delay: 3.4s; --sway-dur: 16s; --depth-blur: blur(3.5px); --op: 0.1;"><svg viewBox="0 0 100 180"><use href="#anemoneSimple"/></svg></div>
+                        <div class="labs-anemone" style="--x: 62%; --w: 30px; --h: 54px; --delay: 0.8s; --sway-dur: 14s; --depth-blur: blur(3px); --op: 0.13;"><svg viewBox="0 0 100 180"><use href="#anemoneSimple"/></svg></div>
+                        <div class="labs-anemone" style="--x: 85%; --w: 24px; --h: 46px; --delay: 2.6s; --sway-dur: 16s; --depth-blur: blur(3.4px); --op: 0.1;"><svg viewBox="0 0 100 180"><use href="#anemoneSimple"/></svg></div>
+                    </div>
+
+                    <div class="labs-anemone-belt labs-belt--mid">
+                        <div class="labs-anemone" style="--x: 22%; --w: 44px; --h: 84px; --delay: 1.2s; --sway-dur: 12s; --depth-blur: blur(1.8px); --op: 0.25;"><svg viewBox="0 0 100 180"><use href="#anemoneMedium"/></svg></div>
+                        <div class="labs-anemone" style="--x: 50%; --w: 48px; --h: 90px; --delay: 3.0s; --sway-dur: 11.5s; --depth-blur: blur(1.6px); --op: 0.28;"><svg viewBox="0 0 100 180"><use href="#anemoneMedium"/></svg></div>
+                        <div class="labs-anemone" style="--x: 76%; --w: 42px; --h: 80px; --delay: 0.5s; --sway-dur: 12.5s; --depth-blur: blur(2px); --op: 0.22;"><svg viewBox="0 0 100 180"><use href="#anemoneMedium"/></svg></div>
+                    </div>
+
+                    <div class="labs-anemone-belt labs-belt--hero">
+                        <div class="labs-anemone" style="--x: 8%; --w: 110px; --h: 200px; --delay: 0.4s; --sway-dur: 9.5s; --op: 0.92;">
+                            <svg viewBox="0 0 140 220"><use href="#anemoneHero"/></svg>
+                        </div>
+                        <div class="labs-anemone" style="--x: 35%; --w: 140px; --h: 250px; --delay: 1.6s; --sway-dur: 10s; --op: 0.96;">
+                            <svg viewBox="0 0 140 220"><use href="#anemoneHero"/></svg>
+                        </div>
+                        <div class="labs-anemone" style="--x: 60%; --w: 125px; --h: 230px; --delay: 0s; --sway-dur: 9.2s; --op: 0.94;">
+                            <svg viewBox="0 0 140 220"><use href="#anemoneHero"/></svg>
+                        </div>
+                        <div class="labs-anemone" style="--x: 82%; --w: 100px; --h: 190px; --delay: 2.2s; --sway-dur: 9.8s; --op: 0.88;">
+                            <svg viewBox="0 0 140 220"><use href="#anemoneHero"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="labs-anemone-belt labs-belt--accent">
+                        <div class="labs-anemone" style="--x: 20%; --w: 90px; --h: 170px; --delay: 0.8s; --sway-dur: 10.4s; --op: 0.82;">
+                            <svg viewBox="0 0 120 200"><use href="#anemoneHero"/></svg>
+                        </div>
+                        <div class="labs-anemone" style="--x: 48%; --w: 85px; --h: 160px; --delay: 2.0s; --sway-dur: 10.8s; --op: 0.78;">
+                            <svg viewBox="0 0 120 200"><use href="#anemoneHero"/></svg>
+                        </div>
+                        <div class="labs-anemone" style="--x: 72%; --w: 95px; --h: 175px; --delay: 1.2s; --sway-dur: 9.6s; --op: 0.84;">
+                            <svg viewBox="0 0 120 200"><use href="#anemoneHero"/></svg>
+                        </div>
+                        <div class="labs-anemone" style="--x: 94%; --w: 80px; --h: 155px; --delay: 2.8s; --sway-dur: 10.2s; --op: 0.76;">
+                            <svg viewBox="0 0 120 200"><use href="#anemoneHero"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="labs-footer">
+            <div class="labs-footer__stats">
+                <div class="labs-stat">
+                    <span class="labs-stat__label">Pressure</span>
+                    <strong>Nominal</strong>
+                </div>
+                <div class="labs-stat">
+                    <span class="labs-stat__label">Chamber</span>
+                    <strong>Sealed</strong>
+                </div>
+                <div class="labs-stat">
+                    <span class="labs-stat__label">Build</span>
+                    <strong>0.1.0</strong>
+                </div>
+            </div>
+            <a href="/" class="labs-return" data-cursor="ASCEND">
+                <span>Return to surface</span>
+                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </footer>
+    </main>
+
+    <script type="module">
+        import { loadContent, getContent } from '/js/content-loader.js';
+        import { initHudNav } from '/js/hud-nav.js';
+        import { initContactHUD } from '/js/contact-hud.js';
+        import { initCursor } from '/js/cursor.js';
+        import { initAnemoneInteraction } from '/js/anemone-interact.js';
+        import { initTopology } from '/js/labs-topology.js';
+
+        loadContent().then(() => {
+            const C = getContent();
+
+            initHudNav();
+            initContactHUD();
+            initCursor();
+            initAnemoneInteraction();
+
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.classList.add('hidden');
+                requestAnimationFrame(() => {
+                    loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+                    setTimeout(() => { if (loader.parentNode) loader.remove(); }, 1200);
+                });
+            }
+
+            const techContainer = document.getElementById('techApproaches');
+            if (techContainer && C.techApproaches) {
+                C.techApproaches.forEach((item) => {
+                    const node = document.createElement('div');
+                    node.className = 'topo-node';
+                    node.dataset.topoId = item.id;
+                    node.dataset.topoConnections = (item.connections || []).join(',');
+                    node.setAttribute('tabindex', '0');
+                    node.setAttribute('role', 'button');
+                    node.setAttribute('aria-label', item.title);
+
+                    const statusClass = item.status
+                        ? ' topo-node__status--' + item.status.toLowerCase().replace(/[\s\/]+/g, '')
+                        : '';
+
+                    const aliasMarkup = item.aliases?.length
+                        ? `<span class="title-alias" data-aliases='${JSON.stringify(item.aliases)}'>${item.aliases[0]}</span>`
+                        : '';
+
+                    const logoSrc = (item.aliases && (item.aliases.includes('Ane.moneY') || item.aliases.includes('Anemone Yield')))
+                        ? '/assets/ane-mark-crisp-glow.svg' : '';
+
+                    const logoMarkup = logoSrc
+                        ? `<img src="${logoSrc}" alt="" class="title-logo" loading="lazy" decoding="async">`
+                        : '';
+
+                    const connectionDots = (item.connections || []).map(() => '<span class="topo-node__link-dot"></span>').join('');
+
+                    node.innerHTML = ''
+                        + `<span class="topo-node__tag">${item.tag}</span>`
+                        + `<h3 class="topo-node__title"><span class="title-with-logo">${logoMarkup}${aliasMarkup || item.title}</span></h3>`
+                        + (item.status ? `<span class="topo-node__status${statusClass}">${item.status}</span>` : '')
+                        + `<p class="topo-node__copy">${item.copy}</p>`
+                        + `<div class="topo-node__links">${connectionDots}</div>`;
+
+                    techContainer.appendChild(node);
+                });
+
+                initTopology();
+            }
+
+            const researchContainer = document.getElementById('labsResearch');
+            if (researchContainer && C.labsResearch) {
+                C.labsResearch.forEach((item) => {
+                    const isHighlight = item.tag === 'BIOFABRICATION';
+                    const card = document.createElement('article');
+                    card.className = 'labs-specimen-card' + (isHighlight ? ' labs-specimen-card--highlight' : '');
+                    card.innerHTML = ''
+                        + '<div class="specimen-frame">'
+                        +   '<header>'
+                        +     `<span class="specimen-tag">${item.tag}</span>`
+                        +     `<h3>${item.title}</h3>`
+                        +   '</header>'
+                        +   `<p>${item.copy}</p>`
+                        +   '<div class="specimen-gauge">'
+                        +     '<span class="gauge-label">Status</span>'
+                        +     `<span class="gauge-value">${item.status}</span>`
+                        +   '</div>'
+                        + '</div>';
+                    researchContainer.appendChild(card);
+                });
+            }
+
+            const aliasEls = document.querySelectorAll('.title-alias[data-aliases]');
+            if (aliasEls.length) {
+                const aliasStates = [];
+                aliasEls.forEach((el) => {
+                    try {
+                        const a = JSON.parse(el.dataset.aliases || '[]');
+                        if (Array.isArray(a) && a.length) aliasStates.push({ el, aliases: a, i: 0 });
+                    } catch {}
+                });
+                if (aliasStates.length) {
+                    setInterval(() => {
+                        aliasStates.forEach((s) => {
+                            s.i = (s.i + 1) % s.aliases.length;
+                            s.el.textContent = s.aliases[s.i];
+                        });
+                    }, 3400);
+                }
+            }
+
+            document.querySelectorAll('.view-toggle__btn[data-link]').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    window.location.href = btn.dataset.link;
+                });
+            });
+
+            const mobileNavToggle = document.getElementById('mobileNavToggle');
+            if (mobileNavToggle) mobileNavToggle.addEventListener('click', () => {
+                const palette = document.getElementById('cmdPalette');
+                if (palette) { palette.classList.toggle('is-open'); palette.setAttribute('aria-hidden', !palette.classList.contains('is-open')); }
+            });
+            const mobileContactBtn = document.getElementById('mobileContactBtn');
+            if (mobileContactBtn && typeof window.openContactHUD === 'function') mobileContactBtn.addEventListener('click', window.openContactHUD);
+        });
+    </script>
+</body>
+</html>

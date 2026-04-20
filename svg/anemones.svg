@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <filter id="volumetricGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.5" result="blur1"/>
+      <feGaussianBlur stdDeviation="5" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="subsurface" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feColorMatrix type="matrix" values="1 0 0 0 0.03
+                                        0 1 0 0 0.06
+                                        0 0 1 0 0.08
+                                        0 0 0 0.85 0" result="tinted"/>
+      <feComposite in="SourceGraphic" in2="tinted" operator="over"/>
+    </filter>
+
+    <linearGradient id="columnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4a5a68" stop-opacity="0.45"/>
+      <stop offset="12%" stop-color="#98a8b8"/>
+      <stop offset="30%" stop-color="#c8d5e0"/>
+      <stop offset="50%" stop-color="#f0f5f8"/>
+      <stop offset="70%" stop-color="#d0dce5"/>
+      <stop offset="88%" stop-color="#a0b0c0"/>
+      <stop offset="100%" stop-color="#556570" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <linearGradient id="columnHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.32"/>
+      <stop offset="75%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="columnShadow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a2530" stop-opacity="0.5"/>
+      <stop offset="18%" stop-color="#1a2530" stop-opacity="0"/>
+      <stop offset="82%" stop-color="#1a2530" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#1a2530" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <radialGradient id="pedalDisc" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#d0dce5" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#a0b0c0" stop-opacity="0.7"/>
+      <stop offset="70%" stop-color="#606a72" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#303538" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="capGrad" cx="50%" cy="75%" r="65%" fx="58%" fy="38%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="22%" stop-color="#f5f8fa"/>
+      <stop offset="48%" stop-color="#dae5ed"/>
+      <stop offset="72%" stop-color="#b5c8d8"/>
+      <stop offset="100%" stop-color="#8aa0b5" stop-opacity="0.55"/>
+    </radialGradient>
+
+    <radialGradient id="capRim" cx="50%" cy="100%" r="80%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="82%" stop-color="#c0d8e8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#a0c0d8" stop-opacity="0.12"/>
+    </radialGradient>
+
+    <radialGradient id="tentacleGrad" cx="50%" cy="100%" r="85%">
+      <stop offset="0%" stop-color="#f8fafc" stop-opacity="0.97"/>
+      <stop offset="22%" stop-color="#f0f5f8" stop-opacity="0.78"/>
+      <stop offset="48%" stop-color="#dce8f0" stop-opacity="0.48"/>
+      <stop offset="72%" stop-color="#c0d4e2" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#a0c0d5" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="tentacleInner" cx="50%" cy="100%" r="58%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#f5f8fa" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#e8f0f5" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="filamentGrad" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#f8fafc" stop-opacity="0.94"/>
+      <stop offset="35%" stop-color="#e8f2f8" stop-opacity="0.55"/>
+      <stop offset="68%" stop-color="#d0e0eb" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#b8d0e0" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="akrorhagiHalo" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#f0fbff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#9edbfd" stop-opacity="0.45"/>
+      <stop offset="70%" stop-color="#4ac2ff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#1a3a56" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="akrorhagiFilament" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e8ffff" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#aee8ff" stop-opacity="0.7"/>
+      <stop offset="55%" stop-color="#76fdd9" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <radialGradient id="ambientGlow" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#6090b8" stop-opacity="0.1"/>
+      <stop offset="45%" stop-color="#4878a0" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#306080" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="rockDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#18140f"/>
+      <stop offset="50%" stop-color="#0e0b08"/>
+      <stop offset="100%" stop-color="#060504"/>
+    </linearGradient>
+
+    <linearGradient id="rockMid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1915"/>
+      <stop offset="60%" stop-color="#12100c"/>
+      <stop offset="100%" stop-color="#080706"/>
+    </linearGradient>
+
+    <linearGradient id="rockLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#252018"/>
+      <stop offset="100%" stop-color="#100e0a"/>
+    </linearGradient>
+
+    <linearGradient id="ridgeSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3a3127" stop-opacity="0.6"/>
+      <stop offset="65%" stop-color="#1a1410" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#070504" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="rockHighlight" cx="35%" cy="25%" r="50%">
+      <stop offset="0%" stop-color="#3a3228" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#1a1610" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="sediment" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="30%" stop-color="#0a0908" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#080706" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#050404"/>
+    </linearGradient>
+
+    <linearGradient id="crevice" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#020202"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+
+    <g id="anemoneSimple">
+      <ellipse cx="50" cy="35" rx="35" ry="25" fill="url(#tentacleGrad)" opacity="0.7"/>
+      <ellipse cx="50" cy="55" rx="20" ry="12" fill="url(#capGrad)"/>
+      <path d="M42,63 Q40,110 43,175 L57,175 Q60,110 58,63 Z" fill="url(#columnGrad)"/>
+      <ellipse cx="50" cy="176" rx="12" ry="4" fill="url(#pedalDisc)"/>
+    </g>
+
+    <g id="anemoneMedium">
+      <g class="tentacles">
+        <ellipse cx="50" cy="32" rx="40" ry="28" fill="url(#tentacleGrad)" opacity="0.85"/>
+        <ellipse cx="50" cy="36" rx="30" ry="20" fill="url(#tentacleInner)" opacity="0.4"/>
+        <g stroke="url(#filamentGrad)" stroke-width="0.6" fill="none" opacity="0.65" stroke-linecap="round">
+          <path d="M50,58 Q22,30 12,5"/>
+          <path d="M50,58 Q38,22 32,-2"/>
+          <path d="M50,58 Q50,18 50,-8"/>
+          <path d="M50,58 Q62,22 68,-2"/>
+          <path d="M50,58 Q78,30 88,5"/>
+        </g>
+      </g>
+      <ellipse cx="50" cy="55" rx="26" ry="16" fill="url(#capGrad)"/>
+      <ellipse cx="50" cy="55" rx="26" ry="16" fill="url(#capRim)"/>
+      <path d="M39,67 Q35,112 39,172 L61,172 Q65,112 61,67 Z" fill="url(#columnGrad)"/>
+      <path d="M39,67 Q35,112 39,172 L61,172 Q65,112 61,67 Z" fill="url(#columnHighlight)" opacity="0.4"/>
+      <ellipse cx="50" cy="174" rx="15" ry="5" fill="url(#pedalDisc)"/>
+    </g>
+
+    <g id="anemoneHero">
+      <g class="tentacles">
+        <ellipse cx="60" cy="26" rx="50" ry="34" fill="url(#tentacleGrad)" opacity="0.9" filter="url(#volumetricGlow)"/>
+        <ellipse cx="60" cy="30" rx="38" ry="26" fill="url(#tentacleInner)" opacity="0.52"/>
+        <g stroke="url(#filamentGrad)" stroke-width="0.72" fill="none" opacity="0.78" stroke-linecap="round">
+          <path d="M60,58 Q12,26 -4,-6"/>
+          <path d="M60,58 Q30,15 18,-18"/>
+          <path d="M60,58 Q60,10 60,-20"/>
+          <path d="M60,58 Q90,15 102,-18"/>
+          <path d="M60,58 Q108,26 124,-6"/>
+        </g>
+        <g class="akrorhagi">
+          <ellipse cx="60" cy="34" rx="46" ry="20" fill="url(#akrorhagiHalo)" opacity="0.55"/>
+          <g class="akrorhagi-filaments" stroke="url(#akrorhagiFilament)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.8">
+            <path d="M10,30 Q-2,14 -6,-4"/>
+            <path d="M30,30 Q24,10 20,-12"/>
+            <path d="M60,30 Q60,6 60,-16"/>
+            <path d="M90,30 Q96,10 100,-12"/>
+            <path d="M110,30 Q122,14 126,-4"/>
+          </g>
+        </g>
+      </g>
+      <ellipse cx="60" cy="54" rx="34" ry="20" fill="url(#capGrad)" filter="url(#subsurface)"/>
+      <ellipse cx="60" cy="54" rx="34" ry="20" fill="url(#capRim)"/>
+      <path d="M42,68 Q34,106 32,142 Q30,178 36,194 Q40,202 54,204 L72,204 Q86,202 90,194 Q96,178 94,142 Q92,106 84,68 Z" fill="url(#columnGrad)"/>
+      <path d="M42,68 Q34,106 32,142 Q30,178 36,194 Q40,202 54,204 L72,204 Q86,202 90,194 Q96,178 94,142 Q92,106 84,68 Z" fill="url(#columnHighlight)" opacity="0.52"/>
+      <path d="M42,68 Q34,106 32,142 Q30,178 36,194 Q40,202 54,204 L72,204 Q86,202 90,194 Q96,178 94,142 Q92,106 84,68 Z" fill="url(#columnShadow)" opacity="0.34"/>
+      <ellipse cx="62" cy="206" rx="22" ry="7" fill="url(#pedalDisc)"/>
+    </g>
+  </defs>
+</svg>

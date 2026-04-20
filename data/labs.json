@@ -1,0 +1,42 @@
+{
+  "labsResearch": [
+    {
+      "tag": "FIELD RESEARCH",
+      "title": "Metridium Campus",
+      "copy": "Applied physical infrastructure research facility for pilot initiative development. Hardware prototyping, systems testing, and field deployment staging. Post-fundraise goal.",
+      "status": "Planned"
+    }
+  ],
+  "labsSpecimens": [],
+  "platformNotice": "PHREE.id credentials validated through MetridiumPHV. Console exposes integrations manager only. Kernel & DePtH OS artifacts never leave bonded hardware.",
+  "platformStatus": [
+    {
+      "label": "Mesh status",
+      "value": "ACONTIA · Encrypted · Stabilized"
+    },
+    {
+      "label": "Identity layer",
+      "value": "PHREE.id · MetridiumPHV native"
+    },
+    {
+      "label": "Build",
+      "value": "0.2.8"
+    }
+  ],
+  "labsFooter": {
+    "stats": [
+      {
+        "label": "Pressure",
+        "value": "Nominal"
+      },
+      {
+        "label": "Chamber",
+        "value": "Sealed"
+      },
+      {
+        "label": "Build",
+        "value": "0.1.0"
+      }
+    ]
+  }
+}
