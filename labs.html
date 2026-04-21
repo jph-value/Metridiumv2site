@@ -332,16 +332,6 @@
             <div class="topo-detail" id="topoDetail"></div>
         </section>
 
-        <section class="labs-initiatives" id="labs-initiatives">
-            <header class="labs-section-header">
-                <span class="labs-depth-marker">02</span>
-                <h2>Research Initiatives</h2>
-                <p>Experiments and infrastructure projects.</p>
-            </header>
-
-            <div class="labs-specimen-grid" id="labsResearch"></div>
-        </section>
-
         <section class="labs-garden" aria-hidden="true">
             <div class="labs-garden__ocean">
                 <div class="labs-garden__haze"></div>
@@ -480,28 +470,6 @@
                 });
 
                 initTopology();
-            }
-
-            const researchContainer = document.getElementById('labsResearch');
-            if (researchContainer && C.labsResearch) {
-                C.labsResearch.forEach((item) => {
-                    const isHighlight = item.tag === 'BIOFABRICATION';
-                    const card = document.createElement('article');
-                    card.className = 'labs-specimen-card' + (isHighlight ? ' labs-specimen-card--highlight' : '');
-                    card.innerHTML = ''
-                        + '<div class="specimen-frame">'
-                        +   '<header>'
-                        +     `<span class="specimen-tag">${item.tag}</span>`
-                        +     `<h3>${item.title}</h3>`
-                        +   '</header>'
-                        +   `<p>${item.copy}</p>`
-                        +   '<div class="specimen-gauge">'
-                        +     '<span class="gauge-label">Status</span>'
-                        +     `<span class="gauge-value">${item.status}</span>`
-                        +   '</div>'
-                        + '</div>';
-                    researchContainer.appendChild(card);
-                });
             }
 
             const aliasEls = document.querySelectorAll('.title-alias[data-aliases]');

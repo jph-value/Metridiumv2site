@@ -1,6 +1,7 @@
 import { loadContent, getContent } from './content-loader.js';
 import { initCursor } from './cursor.js';
 import { initAnemoneInteraction } from './anemone-interact.js';
+import { initContactHUD } from './contact-hud.js';
 
 const select = (selector, parent = document) => parent.querySelector(selector);
 const selectAll = (selector, parent = document) => Array.from(parent.querySelectorAll(selector));
@@ -867,6 +868,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try { initCursor(); } catch (e) { console.error('[Metridium] initCursor:', e); }
   try { initAnemoneInteraction(); } catch (e) { console.error('[Metridium] initAnemoneInteraction:', e); }
   try { initForm(); } catch (e) { console.error('[Metridium] initForm:', e); }
+  try { initContactHUD(); } catch (e) { console.error('[Metridium] initContactHUD:', e); }
   try { initAliasRotation(); } catch (e) { console.error('[Metridium] initAliasRotation:', e); }
   try { initScopeRotator(); } catch (e) { console.error('[Metridium] initScopeRotator:', e); }
 
